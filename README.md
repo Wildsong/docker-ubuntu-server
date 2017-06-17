@@ -1,6 +1,6 @@
 # docker-ubuntu-server
 Base Ubuntu server to support the docker images
-"geo-ceg/arcgis-server" and "geo-ceg/portal-for-arcgis".
+"geoceg/arcgis-server" and "geoceg/portal-for-arcgis".
 
 This contains a few extra packages that ArcGIS Server
 and Portal for ArcGIS need, to speed up building those images.
@@ -8,14 +8,14 @@ and Portal for ArcGIS need, to speed up building those images.
 ## Build
 
 ```
-docker build -t geo-ceg/ubuntu-server .
+docker build -t geoceg/ubuntu-server .
 ```
 
 ## Run
 
-Just for testing...
+Just for testing... you can start an instance and 
+use a bash shell to explore.
 
 ```
-docker run -it geo-ceg/ubuntu-server bash
+docker run -it geoceg/ubuntu-server bash
 ```
-
