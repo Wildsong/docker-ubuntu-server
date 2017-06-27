@@ -3,7 +3,7 @@ From ubuntu:16.04
 LABEL maintainer="b.wilson@geo-ceg.org"
 
 RUN apt-get update
-RUN apt-get -y install apt-utils locales
+RUN apt-get -y install apt-utils locales openssh-client
 
 # Set up the locale. 
 RUN locale-gen en_US.UTF-8
