@@ -1,6 +1,9 @@
 From ubuntu:16.04
-
 LABEL maintainer="b.wilson@geo-ceg.org"
+ENV REFRESHED_AT 2017-06-29
+
+# This release is named "xenial" which is currently the latest LTS
+# release (LTS = Long Term Support)
 
 RUN apt-get update
 RUN apt-get -y install apt-utils locales openssh-client
