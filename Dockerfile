@@ -5,9 +5,6 @@ ENV REFRESHED_AT 2017-06-29
 ENV RELEASE=xenial
 # "xenial" is currently the latest LTS (Long Term Support) release.
 
-# I bet there is a cleaner way to add a repo.
-# We need this for other containers, not here.
-RUN echo "deb http://archive.ubuntu.com/ubuntu ${RELEASE} main universe" > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -y install apt-utils locales
 
