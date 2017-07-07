@@ -26,8 +26,10 @@ RUN groupadd -g 1000 arcgis && useradd -m -r arcgis -g arcgis -u 1000
 ENV HOME /home/arcgis
 
 # Add the inotify watcher so we can examine what services do.
-USER arcgis
 WORKDIR ${HOME}
 ADD watcher.py ${HOME}
 RUN virtualenv notify && . notify/bin/activate && pip install inotify
 # Now you can run "~/notify/bin/python watcher.py watchedfolder"
+
+# Note the user is still set to root here, we want this so that
+# containers that pull from this one still have root when they start.
