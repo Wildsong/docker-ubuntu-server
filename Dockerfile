@@ -19,3 +19,14 @@ RUN apt-get -y install openssh-client inotify-tools
 
 # These are needed by Portal For ArcGIS
 RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
+
+# Create the user/group who will run ArcGIS services
+# I set them to my own UID/GID so that the VOLUMES I create will be read/write
+RUN groupadd -g 1000 arcgis && useradd -m -r arcgis -g arcgis -u 1000
+ENV HOME /home/arcgis
+
+# Add the inotify watcher so we can examine what services do.
+WORKDIR ${HOME}
+ADD watcher.py ${HOME}
+RUN virtualenv notify && source notify/bin/activate && pip install inotify
+# Now you can run "~/notify/bin/python watcher.py watchedfolder"
