@@ -15,7 +15,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 # Others can be convenient
 RUN apt-get -y install gettext less vim net-tools unzip
 # Some developer tools
-RUN apt-get -y install openssh-client inotify-tools
+RUN apt-get -y install openssh-client inotify-tools python virtualenv
 
 # These are needed by Portal For ArcGIS
 RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
@@ -26,7 +26,8 @@ RUN groupadd -g 1000 arcgis && useradd -m -r arcgis -g arcgis -u 1000
 ENV HOME /home/arcgis
 
 # Add the inotify watcher so we can examine what services do.
+USER arcgis
 WORKDIR ${HOME}
 ADD watcher.py ${HOME}
-RUN virtualenv notify && source notify/bin/activate && pip install inotify
+RUN virtualenv notify && . notify/bin/activate && pip install inotify
 # Now you can run "~/notify/bin/python watcher.py watchedfolder"
