@@ -13,9 +13,9 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 # The gettext package is needed to install ArcGIS Server,
 # Others can be convenient
-RUN apt-get -y install gettext less vim net-tools iputils-ping unzip
+RUN apt-get -y install gettext less vim net-tools unzip
 # Some developer tools
-RUN apt-get -y installopenssh-client inotify-tools
+RUN apt-get -y install openssh-client inotify-tools
 
 # These are needed by Portal For ArcGIS
 RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
