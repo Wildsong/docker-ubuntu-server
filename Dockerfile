@@ -1,6 +1,6 @@
 From ubuntu:16.04
 LABEL maintainer="b.wilson@geo-ceg.org"
-ENV REFRESHED_AT 2017-07-05
+ENV REFRESHED_AT 2017-07-09
 
 ENV RELEASE=xenial
 # "xenial" is currently the latest LTS (Long Term Support) release.
