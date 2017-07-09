@@ -15,7 +15,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 # Others can be convenient
 RUN apt-get -y install gettext less vim net-tools unzip
 # Some useful tools
-RUN apt-get -y install bind9-host
+RUN apt-get -y install bind9-host iputils-ping
 
 # These are needed by Portal For ArcGIS
 RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
