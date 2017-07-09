@@ -14,8 +14,8 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 # The gettext package is needed to install ArcGIS Server,
 # Others can be convenient
 RUN apt-get -y install gettext less vim net-tools unzip
-# Some useful tools
-RUN apt-get -y install bind9-host iputils-ping
+# Some useful tools, can't go far without python
+RUN apt-get -y install bind9-host iputils-ping python virtualenv
 
 # These are needed by Portal For ArcGIS
 RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
