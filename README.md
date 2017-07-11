@@ -5,7 +5,10 @@ Base Ubuntu server to support the docker images
 This contains a few extra packages that ArcGIS Server
 and Portal for ArcGIS need, to speed up building those images.
 
-It creates a user called "arcgis". 
+It installs packages for python3, pip3, and uses pip to install "requests",
+to make it easy to use the ArcGIS REST API.
+
+It creates a user/group called "arcgis/arcgis" with UID/GID of 1000/1000.
 
 ## Build
 
