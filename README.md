@@ -19,5 +19,5 @@ Just for testing... you can start an instance and
 use a bash shell to explore.
 
 ```
-docker run -it -rm geoceg/ubuntu-server bash
+docker run -it --rm geoceg/ubuntu-server bash
 ```
