@@ -10,6 +10,8 @@ to make it easy to use the ArcGIS REST API.
 
 It creates a user/group called "arcgis/arcgis" with UID/GID of 1000/1000.
 
+The postgresql-client-9.6 package has been added to support ArcGIS 10.6.
+
 ## Build
 
 ```
