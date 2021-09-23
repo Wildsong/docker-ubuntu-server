@@ -28,6 +28,9 @@ RUN pip install --upgrade pip && pip install requests
 #RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN apt-get update && apt-get install -y postgresql-client-12
 
+# This will make the system work better and eliminate warnings from the temporal store checks
+COPY arcgis.conf /etc/sysctl.d/
+
 # These are needed by Portal For ArcGIS
 RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
 
