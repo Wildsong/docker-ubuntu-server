@@ -1,6 +1,6 @@
-From ubuntu:20.04
+From ubuntu:focal
 LABEL maintainer="brian@wildsong.biz"
-ENV REFRESHED_AT 2021-07-06
+ENV REFRESHED_AT 2021-09-23
 
 ENV RELEASE=focal
 # "focal" is currently the latest LTS (Long Term Support) release.
