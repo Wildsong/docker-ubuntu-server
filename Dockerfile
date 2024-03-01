@@ -1,9 +1,10 @@
-From ubuntu:focal
+From ubuntu:jammy
 LABEL maintainer="brian@wildsong.biz"
-ENV REFRESHED_AT 2021-09-23
+ENV REFRESHED_AT 2024-02-29
 
-ENV RELEASE=focal
-# "focal" is currently the latest LTS (Long Term Support) release.
+ENV RELEASE=jammy
+# "jammy" is version 22.04.4.LTS which is the latest LTS (Long Term Support) release.
+# It's also the newest version supported by Esri.
 
 RUN apt-get update && apt-get -y install apt-utils locales
 
@@ -22,11 +23,11 @@ RUN ln -s /etc/alternatives/python /usr/bin/python &&\
 
 RUN pip install --upgrade pip && pip install requests
 
-# -- This is for ArcGIS 10.9
-# Add the repository for Postgres 12 (this additional repo is not needed with Focal)
-#RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main" >> /etc/apt/sources.list
-#RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-RUN apt-get update && apt-get install -y postgresql-client-12
+# -- This is for ArcGIS 11.2 
+# Add the repository for Postgres 15
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main" >> /etc/apt/sources.list
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN apt-get update && apt-get install -y postgresql-client-15
 
 # This will make the system work better and eliminate warnings from the temporal store checks
 COPY arcgis.conf /etc/sysctl.d/

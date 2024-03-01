@@ -14,9 +14,7 @@ The postgresql-client-12 package has been added to support ArcGIS 10.9.
 
 ## Build
 
-```bash
-docker build -t wildsong/ubuntu-server .
-```
+   docker buildx build -t wildsong/ubuntu-server .
 
 ## Run
 
