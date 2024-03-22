@@ -1,6 +1,6 @@
 # docker-ubuntu-server
-Base Ubuntu server to support the docker images
-"Wildsong/arcgis-server" and "Wildsong/portal-for-arcgis".
+Base Ubuntu server to support the docker in github
+"Wildsong/docker-arcgis-enterprise"
 
 This contains a few extra packages that ArcGIS Server
 and Portal for ArcGIS need, to speed up building those images.
@@ -14,7 +14,7 @@ The postgresql-client-12 package has been added to support ArcGIS 10.9.
 
 ## Build
 
-   docker buildx build -t wildsong/ubuntu-server .
+   docker buildx build -t ubuntu-server .
 
 ## Run
 
@@ -22,7 +22,7 @@ Just for testing... you can start an instance and use a bash shell to explore.
 
 
 ```bash
-docker run -it --rm wildsong/ubuntu-server bash
+docker run -it --rm ubuntu-server bash
 ```
 
 For example you should be able to run python and see this.
