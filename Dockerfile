@@ -1,6 +1,6 @@
 From ubuntu:jammy
 LABEL maintainer="brian@wildsong.biz"
-ENV REFRESHED_AT 2024-02-29
+ENV REFRESHED_AT 2024-03-01
 
 ENV RELEASE=jammy
 # "jammy" is version 22.04.4.LTS which is the latest LTS (Long Term Support) release.
@@ -23,12 +23,6 @@ RUN ln -s /etc/alternatives/python /usr/bin/python &&\
 
 RUN pip install --upgrade pip && pip install requests
 
-# -- This is for ArcGIS 11.2 
-# Add the repository for Postgres 15
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main" >> /etc/apt/sources.list
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-RUN apt-get update && apt-get install -y postgresql-client-15
-
 # This will make the system work better and eliminate warnings from the temporal store checks
 COPY arcgis.conf /etc/sysctl.d/
 
@@ -40,7 +34,9 @@ RUN apt-get -y install libice6 libsm6 libxtst6 libxrender1 dos2unix
 RUN groupadd -g 1000 arcgis && useradd -m -r arcgis -g arcgis -u 1000
 ENV HOME /home/arcgis
 
-WORKDIR ${HOME}
+RUN chown arcgis.arcgis /home/arcgis
+WORKDIR /home/arcgis
+VOLUME /home/arcgis
 
 # Note the user is still set to root here, we want this so that
 # containers that pull from this one still have root when they start.
